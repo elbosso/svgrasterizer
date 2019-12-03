@@ -263,7 +263,7 @@ public class SVGRasterizer
 		}
 	}
 
-	public static java.util.List<java.io.File> workOnFile(final java.io.File svg, Configuration conf, javax.imageio.ImageWriter writer, javax.imageio.ImageWriteParam iwp, java.util.Collection<java.lang.Integer> customSizes) throws MalformedURLException, ParserConfigurationException, SAXException, IOException, XPathExpressionException, TransformerConfigurationException, TransformerException, TranscoderException
+	public static java.util.List<java.io.File> workOnFile(final java.io.File svg, Configuration conf, javax.imageio.ImageWriter writer, javax.imageio.ImageWriteParam iwp,MultiResolutionHelper multiResolutionHelper, java.util.Collection<java.lang.Integer> customSizes) throws MalformedURLException, ParserConfigurationException, SAXException, IOException, XPathExpressionException, TransformerConfigurationException, TransformerException, TranscoderException
 	{
 		java.io.FileInputStream fis=new java.io.FileInputStream(svg);
 		java.lang.String svgs= Utilities.readIntoString(fis);
@@ -290,14 +290,14 @@ public class SVGRasterizer
 			java.lang.String svgm=svgs.replace(o, n);//.("(<g.*?inkscape:label=\"!"+match.group(1)+"\".*?style=\"display:)(none)(\")","$1visible$3");
 			pw.print(svgm);
 			pw.close();
-			rv.addAll(workOnFileImpl(result, conf, writer, iwp, customSizes));
+			rv.addAll(workOnFileImpl(result, conf, writer, iwp,multiResolutionHelper, customSizes));
 //			break;
 		}
 //		if(hasSymbols==false)
-			rv.addAll(workOnFileImpl(svg, conf, writer, iwp, customSizes));
+			rv.addAll(workOnFileImpl(svg, conf, writer, iwp,multiResolutionHelper, customSizes));
 		return rv;
 	}
-	public static java.util.List<java.io.File> workOnFileImpl(final java.io.File svg, Configuration conf, javax.imageio.ImageWriter writer, javax.imageio.ImageWriteParam iwp, java.util.Collection<java.lang.Integer> customSizes) throws MalformedURLException, ParserConfigurationException, SAXException, IOException, XPathExpressionException, TransformerConfigurationException, TransformerException, TranscoderException
+	public static java.util.List<java.io.File> workOnFileImpl(final java.io.File svg, Configuration conf, javax.imageio.ImageWriter writer, javax.imageio.ImageWriteParam iwp,MultiResolutionHelper multiResolutionHelper, java.util.Collection<java.lang.Integer> customSizes) throws MalformedURLException, ParserConfigurationException, SAXException, IOException, XPathExpressionException, TransformerConfigurationException, TransformerException, TranscoderException
 	{
 		java.util.List rv = new java.util.LinkedList();
 		java.net.URL turl = svg.toURI().toURL();
@@ -922,12 +922,13 @@ public class SVGRasterizer
 							{
 								if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(System.getProperty("java.home"));
 							}
-							for (int il = 0; il < svgs.length; ++il)
+							MultiResolutionHelper multiResolutionHelper=new MultiResolutionHelper(svgs);
+							for(java.io.File file:multiResolutionHelper)
 							{
 								try
 								{
 
-									workOnFile(svgs[il], conf, writer, iwp, java.util.Collections.EMPTY_LIST);
+									workOnFile(file, conf, writer, iwp,multiResolutionHelper, java.util.Collections.EMPTY_LIST);
 								}
 								catch (java.lang.Throwable t)
 								{
