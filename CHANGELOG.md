@@ -10,6 +10,11 @@ Changelog of this project.
 
 
 
+            **preparations for automated maven release management**
+
+
+            [e5234be87c3eb0e](https://github.com/<user>/<project>>/commit/e5234be87c3eb0e) Jürgen Key *2020-12-12 07:24:08*
+
             **maven central completely blocks http now**
 
 
