@@ -10,6 +10,11 @@ Changelog of this project.
 
 
 
+            **automated maven release management**
+
+
+            [631c9e6b6412c92](https://github.com/<user>/<project>>/commit/631c9e6b6412c92) Jürgen Key *2020-12-23 12:04:38*
+
             **preparations for automated maven release management**
 
 
