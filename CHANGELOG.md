@@ -3,6 +3,13 @@
 Changelog of this project.
 
 
+            **repository locations fixed**
+
+
+            [dd02aadd6dd58d9](https://github.com/<user>/<project>>/commit/dd02aadd6dd58d9) Jürgen Key *2021-03-07 07:29:21*
+
+
+
             **re #1**
 
 
