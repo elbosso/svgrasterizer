@@ -3,6 +3,11 @@
 Changelog of this project.
 
 
+            **change of repository location for de.elbosso artifacts**
+
+
+            [c1842ac82241bdb](https://github.com/<user>/<project>>/commit/c1842ac82241bdb) Jürgen Key *2021-09-12 15:21:23*
+
             **repository locations fixed**
 
 
