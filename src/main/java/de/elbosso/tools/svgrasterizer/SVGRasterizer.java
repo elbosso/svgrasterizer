@@ -59,7 +59,7 @@ import java.util.Map;
  */
 public class SVGRasterizer
 {
-	private final static org.apache.log4j.Logger CLASS_LOGGER = org.apache.log4j.Logger.getLogger(SVGRasterizer.class);
+	private final static org.slf4j.Logger CLASS_LOGGER =org.slf4j.LoggerFactory.getLogger(SVGRasterizer.class);
 	private final static java.lang.String format = "png";
 
 	private static javax.swing.JPanel panel;
@@ -458,8 +458,8 @@ public class SVGRasterizer
 						scroller.validate();
 						scroller.doLayout();
 						scroller.repaint();
-						if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(l.getBounds());
-						if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(l.getMaximumSize());
+						if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(java.util.Objects.toString(l.getBounds()));
+						if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(java.util.Objects.toString(l.getMaximumSize()));
 						l.scrollRectToVisible(l.getBounds());
 						l.addMouseListener(new java.awt.event.MouseAdapter()
 						{
@@ -490,13 +490,13 @@ public class SVGRasterizer
 										java.io.File[] files=file.listFiles(fnf);
 										for (File file1 : files)
 										{
-											if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(file1);
+											if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(java.util.Objects.toString(file1));
 										}
 										l.addAll(Arrays.asList(files));
 //										de.netsysit.ui.components.ImageGallery imageGallery=new de.netsysit.ui.components.ImageGallery(files);
 //										javax.swing.JOptionPane.showMessageDialog(panel, imageGallery);
 									}
-									if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(l);
+									if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(java.util.Objects.toString(l));
 									java.lang.String s=l.toString();
 									s=s.substring(1, s.length()-1);
 									if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(s);
@@ -904,7 +904,7 @@ public class SVGRasterizer
 							while (writers.hasNext())
 							{
 								writer = writers.next();
-								if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(writer.getClass());
+								if(CLASS_LOGGER.isTraceEnabled())CLASS_LOGGER.trace(java.util.Objects.toString(writer.getClass()));
 								if (writer.getOriginatingProvider().getVendorName().equals("NetSys.IT"))
 								{
 									break;

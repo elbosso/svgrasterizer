@@ -3,6 +3,11 @@
 Changelog of this project.
 
 
+            **dependency management**
+
+
+            [86cf1dad9924ee4](https://github.com/<user>/<project>>/commit/86cf1dad9924ee4) Juergen Key *2022-01-04 07:42:12*
+
             **change of repository location for de.elbosso artifacts**
 
 
